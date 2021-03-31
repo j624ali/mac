@@ -1,0 +1,231 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <title>
+      
+        Sign Up
+      
+    </title>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+    <link href="../assets/css/toolkit.css" rel="stylesheet">
+    
+    <link href="../assets/css/application.css" rel="stylesheet">
+
+    <style>
+
+
+
+        </style>
+
+   
+    
+    
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/chart.js"></script>
+    <script src="../assets/js/toolkit.js"></script>
+    <script>
+      // execute/clear BS loaders for docs
+      $(function(){
+        if (window.BS&&window.BS.loader&&window.BS.loader.length) {
+          while(BS.loader.length){(BS.loader.pop())()}
+        }
+      });
+
+    </script>
+    
+          
+   
+    <script>
+
+
+
+      
+      $(document).ready(function(){
+
+
+
+var colors = new Array( [67, 52, 130], [108, 52, 131], [108, 52, 131], [187, 143, 206], [31, 97, 141], [31, 97, 141]);var step = 0;var colorIndices = [0,1,2,3];var gradientSpeed = 0.002;function gradient1(){ if ( $===undefined ) return; var c0_0 = colors[colorIndices[0]];var c0_1 = colors[colorIndices[1]];var c1_0 = colors[colorIndices[2]];var c1_1 = colors[colorIndices[3]];var istep = 1 - step;var r1 = Math.round(istep * c0_0[0] + step * c0_1[0]);var g1 = Math.round(istep * c0_0[1] + step * c0_1[1]);var b1 = Math
+.round(istep * c0_0[2] + step * c0_1[2]);var color1 = "rgb("+r1+","+g1+","+b1+")";var r2 = Math.round(istep * c1_0[0] + step * c1_1[0]);var g2 = Math.round(istep * c1_0[1] + step * c1_1[1]);var b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);var color2 = "rgb("+r2+","+g2+","+b2+")"; $('body, .form-btn').css({ background: "-webkit-gradient(linear, left top, right top, from("+color1+"), to("+color2+"))"}).css({ background: "-moz-linear-gradient(left, "+color1+" 0%, "+color2+" 100%)"}); step += gradientSpeed; if ( step >= 1 ) { step %= 1; colorIndices[0] = colorIndices[1]; colorIndices[2] = colorIndices[3]; colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length; colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length; }}
+
+
+setInterval(gradient1,10);
+
+
+
+
+
+
+                        
+$("form").submit(function(event){
+          
+          event.preventDefault();
+          
+          var firstname = $("#firstname").val();
+          var lastname = $("#lastname").val();
+          var username = $("#username").val();
+          var password = $("#password").val();
+          var email = $("#email").val();
+          var month = $("#month").val();
+          var day = $("#day").val();
+          var year = $("#year").val();
+
+          
+          $("#error").load("signup.inc.php", {
+              
+              firstname: firstname,
+              lastname: lastname,
+              username: username,
+              password: password,
+              email: email,
+              month: month,
+              day: day,
+              year: year
+              
+              
+          });
+        });
+});
+    
+      </script>
+
+  </head>
+
+
+<body id="gradent">
+  
+
+
+
+<div class="container-fluid container-fill-height">
+  <div class="container-content-middle">
+   
+   
+   
+   
+    <form role="form" class="m-x-auto text-cnter app-form">
+     
+<!--       <a href="../index.html" class="app-brand m-b-lg text-center">
+        <img src="../assets/img/brand.png" alt="brand">
+     <small>Logo goes here, make a logo fgt, and send me colors</small>
+      </a>
+       -->
+<div id="error"></div>
+    
+     <div class="row">
+     
+      <div id="_firstname" class="form-group col-xs-6">
+        <label for="firstname">Firstname</label>
+        <input name="firstname" id="firstname" class="form-control" placeholder="Firstname" type="text">
+        <small class="text-danger form-feedback" id="firstname_"></small>
+      </div>
+
+      <div id="_lastname" class="form-group col-xs-6 ">
+        <label for="lastname">Lastname</label>
+        <input name="lastname" id="lastname" class="form-control" placeholder="Lastname" type="text">
+        <small class="text-danger form-feedback" id="lastname_"></small>
+      </div>
+      
+     </div>
+
+
+      <div id="_username" class="form-group">
+        <label for="username">Username</label>
+        <input name="username" id="username" class="form-control" placeholder="Username" type="text">
+        <small class="text-danger form-feedback" id="username_"></small>
+      </div>
+
+     
+      <div id="_email" class="form-group">
+        <label for="email">Email</label>
+        <input name="email" id="email" class="form-control" placeholder="Email" type="text">
+        <small class="text-danger form-feedback" id="email_"></small>
+      </div>
+
+     
+     
+      <div id="_password" class="form-group">
+        <label for="password">Password</label>
+        <input name="password" id="password" type="password" class="form-control" placeholder="Password">
+        <small class="text-danger form-feedback" id="password_"></small>
+      </div>
+
+    
+     <div class="row">
+     
+      <div id="_month" class="form-group col-xs-5">
+        <label for="month">Month</label>
+
+          <select name="month" id="month" class="form-control custom-select" placeholder="Month" type="select">
+              <option value="0">Month</option>
+              <option value="1">January</option>
+              <option value="2">February</option>
+              <option value="3">March</option>
+              <option value="4">April</option>
+              <option value="5">May</option>
+              <option value="6">June</option>
+              <option value="7">July</option>
+              <option value="8">August</option>
+              <option value="9">September</option>
+              <option value="10">October</option>
+              <option value="11">November</option>
+              <option value="12">December</option>
+          </select>
+      </div>
+
+      <div id="_day" class="form-group col-xs-3">
+        <label for="year">Day</label>
+        <input name="day" id="day" class="form-control" placeholder="Day" maxlength="2" type="number">
+      </div>
+      <div id="_year" class="form-group col-xs-4">
+        <label for="year">Year</label>
+        <input name="year" id="year" class="form-control" placeholder="Year" type="number">
+      </div>
+
+
+     </div>    
+      
+       
+        
+
+<div class="text-center">
+<small>
+  <p>By signing up, you agree to our <a href="../terms_and_conditions.html">terms and conditions </a>and <a href="../privacy_policy.html">privacy policy </a>.</p>
+</small>
+</div>
+
+      <div class="m-b-md text-center">
+        <input name="submit" id="submit" type="submit" class="btn-pill btn form-btn" value="Sign Up &#38; Accept">
+      </div>
+
+     
+     
+      <footer class="text-center m-b-0">
+         <p>Already have an account? <a href="../login/index.html" class="text-muted"><b>Log In</b></a></p> 
+      </footer>
+
+      
+    </form>
+    
+    
+    
+    
+    
+  </div>
+</div>
+
+    
+
+  </body>
+</html>
+

@@ -1,0 +1,168 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <title>
+      
+        Password Reset
+      
+    </title>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+    <link href="../assets/css/toolkit.css" rel="stylesheet">
+    
+    <link href="../assets/css/application.css" rel="stylesheet">
+
+    <style>
+
+
+
+        </style>
+
+   
+    
+    
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/chart.js"></script>
+    <script src="../assets/js/toolkit.js"></script>
+    <script>
+      // execute/clear BS loaders for docs
+      $(function(){
+        if (window.BS&&window.BS.loader&&window.BS.loader.length) {
+          while(BS.loader.length){(BS.loader.pop())()}
+        }
+      });
+
+    </script>
+    
+
+
+    <script>
+
+
+
+      
+      $(document).ready(function(){
+
+
+
+var colors = new Array( [67, 52, 130], [108, 52, 131], [108, 52, 131], [187, 143, 206], [31, 97, 141], [31, 97, 141]);var step = 0;var colorIndices = [0,1,2,3];var gradientSpeed = 0.002;function gradient1(){ if ( $===undefined ) return; var c0_0 = colors[colorIndices[0]];var c0_1 = colors[colorIndices[1]];var c1_0 = colors[colorIndices[2]];var c1_1 = colors[colorIndices[3]];var istep = 1 - step;var r1 = Math.round(istep * c0_0[0] + step * c0_1[0]);var g1 = Math.round(istep * c0_0[1] + step * c0_1[1]);var b1 = Math
+.round(istep * c0_0[2] + step * c0_1[2]);var color1 = "rgb("+r1+","+g1+","+b1+")";var r2 = Math.round(istep * c1_0[0] + step * c1_1[0]);var g2 = Math.round(istep * c1_0[1] + step * c1_1[1]);var b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);var color2 = "rgb("+r2+","+g2+","+b2+")"; $('body, .form-btn').css({ background: "-webkit-gradient(linear, left top, right top, from("+color1+"), to("+color2+"))"}).css({ background: "-moz-linear-gradient(left, "+color1+" 0%, "+color2+" 100%)"}); step += gradientSpeed; if ( step >= 1 ) { step %= 1; colorIndices[0] = colorIndices[1]; colorIndices[2] = colorIndices[3]; colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length; colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length; }}
+
+
+setInterval(gradient1,10);
+
+
+var $_GET = {};
+if(document.location.toString().indexOf('?') !== -1) {
+    var query = document.location
+                   .toString()
+                   .replace(/^.*?\?/, '')
+                   .replace(/#.*$/, '')
+                   .split('&');
+    for(var i=0, l=query.length; i<l; i++) {
+       var aux = decodeURIComponent(query[i]).split('=');
+       $_GET[aux[0]] = aux[1];
+    }
+}
+
+
+
+
+
+                        
+$("form").submit(function(event){
+          
+          event.preventDefault();
+          
+
+          var new_password = $("#new_password").val();
+          var confirm_new_password = $("#confirm_new_password").val();
+          var selector = $_GET["selector"];
+          var validator = $_GET["validator"];
+
+          $("#error").load("create_new_password.inc.php", {
+              new_password: new_password,
+              confirm_new_password: confirm_new_password,
+              selector: selector,
+              validator: validator
+          });
+});
+
+
+
+
+
+});
+    
+
+      </script>
+
+  </head>
+
+
+<body id="gradent">
+
+<div class="container-fluid container-fill-height">
+  <div class="container-content-middle">
+   
+   
+   
+
+    <form role="form" class="m-x-auto  app-form">
+
+<div class="text-center m-t-0 m-b-lg">
+        <h3 class="m-t-0 text-center">Create a new password</h3>
+</div>
+
+      
+<div id="error"></div>
+    
+     
+      <div id="_new_password" class="form-group">
+        <label for="enew_password">New password</label>
+        <input name="new_password" id="new_password" class="form-control" placeholder="New password" type="password">
+        <small class="text-danger form-feedback" id="new_password_"></small>
+      </div>
+
+     
+      <div id="_confirm_new_password" class="form-group">
+        <label for="confirm_new_password">Re-type new password</label>
+        <input name="confirm_new_password" id="confirm_new_password" class="form-control" placeholder="Re-type new password" type="password">
+        <small class="text-danger form-feedback" id="confirm_new_password_"></small>
+      </div>
+
+     
+
+      <div class="m-b-0 m-t-md text-center">
+        <input name="submit" id="submit" type="submit" class="btn-pill btn form-btn" value="Reset Password">
+      </div>
+
+     
+     
+ 
+
+      
+    </form>
+
+    
+
+
+  </div>
+
+
+</div>
+
+    
+
+  </body>
+</html>

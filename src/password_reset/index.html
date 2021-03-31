@@ -1,0 +1,154 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <title>
+      
+        Password Reset
+      
+    </title>
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
+    <link href="../assets/css/toolkit.css" rel="stylesheet">
+    
+    <link href="../assets/css/application.css" rel="stylesheet">
+
+    <style>
+
+
+
+        </style>
+
+   
+    
+    
+    <script src="../assets/js/jquery.min.js"></script>
+    <script src="../assets/js/chart.js"></script>
+    <script src="../assets/js/toolkit.js"></script>
+    <script>
+      // execute/clear BS loaders for docs
+      $(function(){
+        if (window.BS&&window.BS.loader&&window.BS.loader.length) {
+          while(BS.loader.length){(BS.loader.pop())()}
+        }
+      });
+
+    </script>
+    
+
+
+    <script>
+
+
+
+      
+      $(document).ready(function(){
+
+
+
+var colors = new Array( [67, 52, 130], [108, 52, 131], [108, 52, 131], [187, 143, 206], [31, 97, 141], [31, 97, 141]);var step = 0;var colorIndices = [0,1,2,3];var gradientSpeed = 0.002;function gradient1(){ if ( $===undefined ) return; var c0_0 = colors[colorIndices[0]];var c0_1 = colors[colorIndices[1]];var c1_0 = colors[colorIndices[2]];var c1_1 = colors[colorIndices[3]];var istep = 1 - step;var r1 = Math.round(istep * c0_0[0] + step * c0_1[0]);var g1 = Math.round(istep * c0_0[1] + step * c0_1[1]);var b1 = Math
+.round(istep * c0_0[2] + step * c0_1[2]);var color1 = "rgb("+r1+","+g1+","+b1+")";var r2 = Math.round(istep * c1_0[0] + step * c1_1[0]);var g2 = Math.round(istep * c1_0[1] + step * c1_1[1]);var b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);var color2 = "rgb("+r2+","+g2+","+b2+")"; $('body, .form-btn').css({ background: "-webkit-gradient(linear, left top, right top, from("+color1+"), to("+color2+"))"}).css({ background: "-moz-linear-gradient(left, "+color1+" 0%, "+color2+" 100%)"}); step += gradientSpeed; if ( step >= 1 ) { step %= 1; colorIndices[0] = colorIndices[1]; colorIndices[2] = colorIndices[3]; colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length; colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length; }}
+
+
+setInterval(gradient1,10);
+
+
+
+
+
+
+                        
+$("form").submit(function(event){
+          
+          event.preventDefault();
+        
+          var email = $("#email").val();
+
+          $("#error").load("password_reset.inc.php", {
+              email: email
+          });
+        });
+
+
+
+
+});
+    
+
+      </script>
+
+  </head>
+
+
+<body id="gradent">
+
+<div class="container-fluid container-fill-height">
+  <div class="container-content-middle">
+   
+   
+   
+
+    <form role="form" class="m-x-auto  app-form">
+
+<div class="text-center m-t-0 m-b-md">
+        <h3 class="m-t-0 text-center">Reset your password</h3>
+
+        <small class="text-muted">Enter your email and we'll send you a link to get reset your password.</small>
+  
+</div>
+
+      
+<div id="error"></div>
+    
+
+
+
+     
+      <div id="_email" class="form-group">
+        <label for="email">Email address</label>
+        <input name="email" id="email" class="form-control" placeholder="Email address" type="text">
+        <small class="text-danger form-feedback" id="email_"></small>
+      </div>
+
+     
+
+      <div class="m-b-lg text-center">
+        <input name="submit" id="submit" type="submit" class="btn-pill btn form-btn" value="Reset Password">
+      </div>
+
+     
+     
+      <footer class="text-center">
+
+
+<a href="../signup/index.html" class="text-muted"><b>Create Account</b></a>
+ / 
+ <a href="../login/index.html" class="text-muted"><b>Login</b></a>
+
+
+      </footer>
+
+      
+    </form>
+
+    
+
+
+  </div>
+
+
+</div>
+
+    
+
+  </body>
+</html>
